@@ -1,10 +1,8 @@
 class ResultsValidator
 {
-    constructor() {
-        this.errors = [];
-    }
-
     checkResults(results) {
+        this.errors = [];
+
         if ('object' != typeof results) {
             this.errors.push(`The tool's results should be an array or an object. ${typeof results} found instead.`);
         } else {
@@ -15,28 +13,28 @@ class ResultsValidator
             }
 
             for (const singleResult of results) {
-                this.checkSingleResult(singleResult);
+                this._checkSingleResult(singleResult);
             }
         }
 
-        return this.errors.length ? this.errors : null;
+        return this.errors;
     }
 
-    checkSingleResult(result)
+    _checkSingleResult(result)
     {
         if ('object' != typeof result) {
             this.errors.push(`Every result element should be an object. ${typeof result} found instead.`);
             return;
         }
 
-        this.checkMissingProperties(result);
-        this.checkPropertiesType(result);
-        this.checkSnippetsFormat(result);
-        this.checkTableFormat(result);
-        this.checkRecommendationsFormat(result);
+        this._checkMissingProperties(result);
+        this._checkPropertiesType(result);
+        this._checkSnippetsFormat(result);
+        this._checkTableFormat(result);
+        this._checkRecommendationsFormat(result);
     }
 
-    checkMissingProperties(result) {
+    _checkMissingProperties(result) {
         const requiredProperties = ['uniqueName', 'title', 'description', 'weight', 'score'];
         for (const property of requiredProperties) {
             if ('undefined' == typeof result[property] || result[property] === null) {
@@ -46,7 +44,7 @@ class ResultsValidator
         }
     }
 
-    checkPropertiesType(result) {
+    _checkPropertiesType(result) {
         if (typeof result.uniqueName != 'string' || result.uniqueName.length < 5) {
             this.errors.push(`The uniqueName of a result element should be a string of at least 5 characters, but the following ${typeof result.uniqueName} was found: ${JSON.stringify(result.uniqueName)}`);
         }
@@ -68,7 +66,7 @@ class ResultsValidator
         }
     }
 
-    checkSnippetsFormat(result) {
+    _checkSnippetsFormat(result) {
         if (typeof result.snippets == 'undefined') {
             return;
         }
@@ -85,7 +83,7 @@ class ResultsValidator
         }
     }
 
-    checkTableFormat(result) {
+    _checkTableFormat(result) {
         if (typeof result.table == 'undefined') {
             return;
         }
@@ -113,7 +111,7 @@ class ResultsValidator
         }
     }
 
-    checkRecommendationsFormat(result) {
+    _checkRecommendationsFormat(result) {
         if (typeof result.recommendations == 'undefined') {
             return;
         }
