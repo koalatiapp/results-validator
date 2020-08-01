@@ -57,11 +57,11 @@ class ResultsValidator
             this.errors.push(`The description of a result element should be a string of at least 20 characters, but the following ${typeof result.description} was found: ${JSON.stringify(result.description)}`);
         }
 
-        if (typeof result.weight != 'number' || result.weight > 1) {
+        if (typeof result.weight != 'number' || result.weight > 1 || result.weight < 0) {
             this.errors.push(`The weight of a result element should be a float value between 0.0 and 1.0, but the following ${typeof result.weight} was found: ${JSON.stringify(result.weight)}`);
         }
 
-        if (typeof result.score != 'number' || result.score > 1) {
+        if (typeof result.score != 'number' || result.score > 1 || result.score < 0) {
             this.errors.push(`The score of a result element should be a float value between 0.0 and 1.0, but the following ${typeof result.score} was found: ${JSON.stringify(result.score)}`);
         }
     }
