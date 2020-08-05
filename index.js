@@ -45,8 +45,8 @@ class ResultsValidator
     }
 
     _checkPropertiesType(result) {
-        if (typeof result.uniqueName != 'string' || result.uniqueName.length < 5) {
-            this.errors.push(`The uniqueName of a result element should be a string of at least 5 characters, but the following ${typeof result.uniqueName} was found: ${JSON.stringify(result.uniqueName)}`);
+        if (typeof result.uniqueName != 'string' || result.uniqueName.length < 2) {
+            this.errors.push(`The uniqueName of a result element should be a string of at least 2 characters, but the following ${typeof result.uniqueName} was found: ${JSON.stringify(result.uniqueName)}`);
         }
 
         if (typeof result.title != 'string' || result.title.length < 5) {
