@@ -49,8 +49,8 @@ class ResultsValidator
             this.errors.push(`The uniqueName of a result element should be a string of at least 2 characters, but the following ${typeof result.uniqueName} was found: ${JSON.stringify(result.uniqueName)}`);
         }
 
-        if (typeof result.title != 'string' || result.title.length < 5) {
-            this.errors.push(`The title of a result element should be a string of at least 5 characters, but the following ${typeof result.title} was found: ${JSON.stringify(result.title)}`);
+        if (typeof result.title != 'string' || result.title.length < 2) {
+            this.errors.push(`The title of a result element should be a string of at least 2 characters, but the following ${typeof result.title} was found: ${JSON.stringify(result.title)}`);
         }
 
         if (typeof result.description != 'string' || result.description.length < 20) {
@@ -67,7 +67,7 @@ class ResultsValidator
     }
 
     _checkSnippetsFormat(result) {
-        if (typeof result.snippets == 'undefined') {
+        if (typeof result.snippets == 'undefined' || result.snippets === null) {
             return;
         }
 
@@ -84,7 +84,7 @@ class ResultsValidator
     }
 
     _checkTableFormat(result) {
-        if (typeof result.table == 'undefined') {
+        if (typeof result.table == 'undefined' || result.snippets === null) {
             return;
         }
 
@@ -112,7 +112,7 @@ class ResultsValidator
     }
 
     _checkRecommendationsFormat(result) {
-        if (typeof result.recommendations == 'undefined') {
+        if (typeof result.recommendations == 'undefined' || result.snippets === null) {
             return;
         }
 
