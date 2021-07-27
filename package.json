@@ -4,7 +4,7 @@
   "description": "An helper class that checks the validity of a Koalati tool's results",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/koalatiapp/results-validator/issues"
   },
-  "homepage": "https://github.com/koalatiapp/results-validator#readme"
+  "homepage": "https://github.com/koalatiapp/results-validator#readme",
+  "devDependencies": {
+    "mocha": "^9.0.3"
+  }
 }
