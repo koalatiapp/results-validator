@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/koalatiapp/results-validator#readme",
   "devDependencies": {
+    "eslint": "^7.31.0",
     "mocha": "^9.0.3"
   }
 }

@@ -1,6 +1,7 @@
 # Koalati Results Validator
 
 [![NPM version of @koalati/results-validator](https://img.shields.io/npm/v/@koalati/results-validator)](https://www.npmjs.com/package/@koalati/results-validator)
+[![GitHub CI Workflow status](https://github.com/koalatiapp/results-validator/workflows/CI/badge.svg)](https://github.com/koalatiapp/results-validator/actions)
 
 The ResultsValidator class can be used to ensure the validity of a Koalati tool's results.
 It is included and used by the @koalati/tool-template package, and to validate results before they are returned on Koalati.
