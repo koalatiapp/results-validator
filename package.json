@@ -1,6 +1,6 @@
 {
   "name": "@koalati/results-validator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An helper class that checks the validity of a Koalati tool's results",
   "main": "index.js",
   "scripts": {

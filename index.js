@@ -122,8 +122,12 @@ class ResultsValidator
 
         if (Array.isArray(result.recommendations)) {
             for (const value of result.recommendations) {
-                if (typeof value != 'string') {
-                    this.errors.push(`The values in an array of recommendations for a result element should be a strings, but the following ${typeof value} was found: ${JSON.stringify(value)}`);
+                if (Array.isArray(value)) {
+                    if (value.length != 2 || typeof value[0] != "string" || typeof value[1] != "object") {
+                        this.errors.push(`The values in an array of recommendations for a result element should be strings or templated recommendation arrays, but the following ${typeof value} was found: ${JSON.stringify(value)}`);
+                    }
+                } else if (typeof value != 'string') {
+                    this.errors.push(`The values in an array of recommendations for a result element should be strings or templated recommendation arrays, but the following ${typeof value} was found: ${JSON.stringify(value)}`);
                 }
             }
         }
